@@ -24,6 +24,7 @@ setup(
         ],
     },
     install_requires=[
-       'qtpyvcp',
+        'qtpyvcp',
+        'opencv-python==3.2.0.8'
     ],
 )

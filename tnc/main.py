@@ -1,20 +1,13 @@
 #!/usr/bin/env python
-
 import os
-
-from qtpy.QtCore import Slot
+import resources
 from qtpyvcp.widgets.form_widgets.main_window import VCPMainWindow
-
-# Setup logging
 from qtpyvcp.utilities import logger
-
-LOG = logger.getLogger('QtPyVCP.' + __name__)
-
 from qtpyvcp import actions
 
-import resources
+from tnc.widgets.designer_plugins import OpenCVPlugin
 
-VCP_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG = logger.getLogger('TNC.{}'.format(__name__))
 
 
 class MainWindow(VCPMainWindow):
