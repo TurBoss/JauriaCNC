@@ -5,9 +5,7 @@ from qtpyvcp.widgets.form_widgets.main_window import VCPMainWindow
 from qtpyvcp.utilities import logger
 from qtpyvcp import actions
 
-from tnc.widgets.designer_plugins import OpenCVPlugin
-
-LOG = logger.getLogger('TNC.{}'.format(__name__))
+LOG = logger.getLogger(__name__)
 
 
 class MainWindow(VCPMainWindow):

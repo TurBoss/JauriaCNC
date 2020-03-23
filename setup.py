@@ -3,6 +3,10 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("entry_points.ini", "r") as fh:
+    entry_points = fh.read()
+
+
 setup(
     name="tnc",
     version="0.0.2",
@@ -15,14 +19,7 @@ setup(
     download_url="https://github.com/TurBoss/tnc/tarball/master",
     packages=find_packages(),
     include_package_data=True,
-    entry_points={
-        'gui_scripts': [
-            'tnc=tnc:main',
-        ],
-        'qtpyvcp.vcp': [
-            'tnc=tnc',
-        ],
-    },
+    entry_points=entry_points,
     install_requires=[
         'qtpyvcp',
         'opencv-python==3.2.0.8'

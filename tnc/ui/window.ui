@@ -958,44 +958,9 @@ Replace</string>
           <widget class="QWidget" name="page">
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
-             <widget class="VTKBackPlot" name="vtk">
-              <property name="backgroundColor" stdset="0">
-               <color>
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </property>
-              <property name="backgroundColor2" stdset="0">
-               <color>
-                <red>45</red>
-                <green>45</green>
-                <blue>45</blue>
-               </color>
-              </property>
-              <property name="enableProgramLabels" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
-               <widget class="GcodeEditor" name="gcodeeditor"/>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
-                <item>
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>MDI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="MDIEntry" name="mdientry"/>
-                </item>
-               </layout>
+               <widget class="OpenCVWidget" name="video_0"/>
               </item>
              </layout>
             </item>
@@ -1599,14 +1564,14 @@ Replace</string>
    <header>qtpyvcp.widgets.button_widgets.dialog_button</header>
   </customwidget>
   <customwidget>
-   <class>MDIEntry</class>
-   <extends>QLineEdit</extends>
-   <header>qtpyvcp.widgets.input_widgets.mdientry_widget</header>
-  </customwidget>
-  <customwidget>
    <class>ActionSlider</class>
    <extends>QSlider</extends>
    <header>qtpyvcp.widgets.input_widgets.action_slider</header>
+  </customwidget>
+  <customwidget>
+   <class>OpenCVWidget</class>
+   <extends>QLabel</extends>
+   <header>tnc.widgets.opencv_widget</header>
   </customwidget>
   <customwidget>
    <class>StatusLabel</class>
@@ -1619,21 +1584,10 @@ Replace</string>
    <header>qtpyvcp.widgets.button_widgets.mdi_button</header>
   </customwidget>
   <customwidget>
-   <class>GcodeEditor</class>
-   <extends>QFrame</extends>
-   <header>qtpyvcp.widgets.input_widgets.gcode_editor</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>VCPMainWindow</class>
    <extends>QMainWindow</extends>
    <header>qtpyvcp.widgets.form_widgets.main_window</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>VTKBackPlot</class>
-   <extends>QWidget</extends>
-   <header>qtpyvcp.widgets.display_widgets.vtk_backplot.vtk_backplot</header>
   </customwidget>
   <customwidget>
    <class>ActionComboBox</class>
@@ -1649,248 +1603,7 @@ Replace</string>
  <resources>
   <include location="../resources.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>plotClear</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>clearLivePlot()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>93</x>
-     <y>210</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotMinus</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>zoomOut()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>427</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotPlus</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>zoomIn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>481</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotZ2</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewZ2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>535</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotZ</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewZ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>589</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotY</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewY()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>644</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotX</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewX()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>698</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotP</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewP()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>752</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotClear_2</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>vtk</receiver>
-   <slot>enable_panning(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>72</x>
-     <y>264</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotClear_3</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewMachine()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>63</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plotClear_5</sender>
-   <signal>clicked()</signal>
-   <receiver>vtk</receiver>
-   <slot>setViewPath()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>71</x>
-     <y>361</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>241</x>
-     <y>419</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_4</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>gcodeeditor</receiver>
-   <slot>setEditable(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>649</x>
-     <y>189</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>654</x>
-     <y>290</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>gcodeeditor</receiver>
-   <slot>find_replace()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>742</x>
-     <y>180</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>742</x>
-     <y>333</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>gcodeeditor</receiver>
-   <slot>save()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>857</x>
-     <y>194</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>834</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>gcodeeditor</receiver>
-   <slot>saveAs()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>943</x>
-     <y>193</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>924</x>
-     <y>268</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <designerdata>
   <property name="gridDeltaX">
    <number>10</number>
